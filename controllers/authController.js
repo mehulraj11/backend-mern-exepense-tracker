@@ -4,7 +4,7 @@ const User = require('../models/User.js')
 // generate jwt token
 
 const generateToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1h" })
+    return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "10h" })
 }
 
 // register user

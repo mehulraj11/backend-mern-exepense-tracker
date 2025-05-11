@@ -5,15 +5,15 @@ const Expense = require("../models/Expense.js")
 exports.addExpense = async (req, res) => {
     const userId = req.user.id;
     try {
-        const { icon, cateogry, amount, date } = req.body;
+        const { icon, category, amount, date } = req.body;
         // validation check for missing fields
-        if (!cateogry || !amount || !date) {
+        if (!category || !amount || !date) {
             return res.status(400).json({ message: "all fields are required" })
         }
         const newExpense = new Expense({
             userId,
             icon,
-            cateogry,
+            category,
             amount,
             date: new Date(date)
         });
@@ -51,7 +51,7 @@ exports.downloadExpenseExcel = async (req, res) => {
         const Expense = await Expense.find({ userId }).sort({ date: -1 });
 
         const data = Expense.map(item => ({
-            Cateogry: item.cateogry,
+            Category: item.category,
             Amount: item.amount,
             Date: item.date.toISOString().split('T')[0]  // Format as YYYY-MM-DD
         }));
