@@ -4,7 +4,7 @@ const {
     getAllExpense,
     deleteExpense,
     downloadExpenseExcel
-} = require("../controllers/ExpenseController.js")
+} = require("../controllers/expenseController.js")
 
 const { protect } = require("../middleware/authMiddleware.js")
 
