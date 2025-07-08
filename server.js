@@ -10,7 +10,6 @@ const dashboardRoutes = require("./routes/dashboardRoutes.js")
 const morgan = require("morgan")
 const app = express();
 
-// Middlewares to handle CORS
 
 app.use(cors({
     origin: process.env.CLIENT_URL || "*",
@@ -27,7 +26,6 @@ app.use("/api/v1/income", incomeRoutes)
 app.use("/api/v1/expense", expenseRoutes)
 app.use("/api/v1/dashboard", dashboardRoutes)
 
-// server uploads folder
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 const PORT = process.env.PORT || 5000;
